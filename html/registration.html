@@ -88,24 +88,34 @@
 	</header>
 	<nav>
 		<ul>
-			<li><a href="#">Home</a></li>
-			<li><a href="#">Questions</a></li>
+			<li><a href="./home.html">Home</a></li>
+			<li><a href="./html/disscussion_board.html">Questions</a></li>
 			<li><a href="#">Ask a Question</a></li>
 		</ul>
 	</nav>
-	<main>
-		<div class="question">
-			<h2>How can I improve my public speaking skills?</h2>
-			<p>I have a big presentation coming up and I'm nervous about speaking in front of a crowd. Any tips or advice?</p>
-			<div class="rating">
-				<label>Rate this question:</label>
-				<input type="radio" name="rating" value="1"><label></label>
-				<input type="radio" name="rating" value="2"><label></label>
-				<input type="radio" name="rating" value="3"><label></label>
-				<input type="radio" name="rating" value="4"><label></label>
-				<input type="radio" name="rating" value="5"><label></label>
+    <div class="account">
+        <form>
+            <div class="container">
+                <h1>Sign Up</h1>
+                <p>Please fill in this form to create an account.</p>
+                <hr>
+          
+                <label for="email"><b>Email</b></label>
+                <input type="text" placeholder="Enter Email" name="email" required>
+                <br>
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+                <br>
+                <label for="name"><b>Name</b></label>
+                <input type="text" placeholder="Enter Name" name="name" required>
+  
+              <div class="clearfix">
+  
+                <a href="#"><button type="button" class="cancelbtn">Cancel</button></a>
+                <a href="#"><button type="submit" class="signupbtn">Sign Up</button></a>
+              </div>
             </div>
-        </div>
-    </main>
+          </form>
+      </div>
 </body>
 </html>
