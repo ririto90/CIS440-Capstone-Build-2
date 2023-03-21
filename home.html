@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentor/Mentee Forum</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+		header {
+			background-color: #333;
+			color: #fff;
+			padding: 20px;
+			text-align: center;
+		}
+		nav {
+			background-color: #eee;
+			padding: 10px;
+			text-align: center;
+		}
+		nav ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+		}
+		nav ul li {
+			display: inline-block;
+			margin: 0 10px;
+		}
+		nav ul li a {
+			color: #333;
+			text-decoration: none;
+			padding: 5px;
+		}
+		nav ul li a:hover {
+			background-color: #333;
+			color: #fff;
+		}
+		main {
+			margin: 20px auto;
+			max-width: 800px;
+			padding: 20px;
+			background-color: #f2f2f2;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+		}
+		.question {
+			background-color: #fff;
+			padding: 20px;
+			margin-bottom: 20px;
+			box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+		}
+		.question h2 {
+			margin-top: 0;
+		}
+		.question p {
+			margin-top: 10px;
+			margin-bottom: 0;
+		}
+		.rating {
+			display: flex;
+			align-items: center;
+			margin-top: 10px;
+		}
+		.rating label {
+			margin-right: 10px;
+		}
+		.rating input[type="radio"] {
+			display: none;
+		}
+		.rating label:before {
+			content: "\2606";
+			font-size: 20px;
+			color: #ddd;
+		}
+		.rating input[type="radio"]:checked ~ label:before {
+			content: "\2605";
+			color: #ffcc00;
+		}
+	</style>
+</head>
+<body>
+    <header>
+		<h1>Mentor/Mentee Forum</h1>
+	</header>
+	<nav>
+		<ul>
+			<li><a href="../home.html">Home</a></li>
+			<li><a href="./html/disscussion_board.html">Questions</a></li>
+			<li><a href="#">Ask a Question</a></li>
+		</ul>
+	</nav>
+	<main>
+		<div>
+			<h1>Login</h1>
+		</div>
+	
+		<div>
+			<label for="username">Username:</label>
+			<input id="username" name="username" type="text" placeholder="Username">
+			<br>
+			<label for="password">Password:</label>
+			<input id="password" name="password" type="password" placeholder="password">
+			<br>
+			<a href="./html/disscussion_board.html"><button type="button" class="btn">Login</button></a>
+			<br>
+		</div>
+	
+		<div>
+			<a href="./html/registration.html">Create Account</a>
+			<br>
+		</div>
+    </main>
+</body>
+</html>
