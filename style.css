@@ -4,6 +4,22 @@ body {
     padding: 0;
 }
 
+nav a {
+    font-size: large;
+}
+
+nav a:hover {
+    transform: scale(1.2);
+}
+
+h7 {
+    font-style: italic;
+}
+
+#buttons {
+    font-size: large;
+}
+
 header {
     background-image: linear-gradient(rgba(0,0,0,.2), rgba(0,0,0,.4)), url("images/bg-blue.jpeg");
     background-repeat: no-repeat;
@@ -57,3 +73,20 @@ main {
     content: "\2605";
     color: #ffcc00;
 }
+
+.profile {
+    margin-bottom: 20px;
+    margin-top: -12px;
+    text-align: center;
+}
+
+.profileimg {
+    border-radius: 50%;
+    box-shadow: 0px 0px 4px 4px blue;
+    width: 150px;
+    height: 150px;
+    
+
+    
+}
+
