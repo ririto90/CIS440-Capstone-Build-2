@@ -12,6 +12,10 @@ nav a:hover {
     transform: scale(1.2);
 }
 
+h7 {
+    font-style: italic;
+}
+
 header {
     background-image: linear-gradient(rgba(0,0,0,.2), rgba(0,0,0,.4)), url("images/bg-blue.jpeg");
     background-repeat: no-repeat;
