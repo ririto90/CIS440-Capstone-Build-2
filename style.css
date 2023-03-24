@@ -20,6 +20,19 @@ h7 {
     font-size: large;
 }
 
+#leaderboard {
+    margin: auto;
+}
+
+#leaderboard td {
+    padding: 10px;
+    font-size: 250%;
+}
+
+.bi-star, .bi-star-fill {
+    color: gold;
+}
+
 header {
     background-image: linear-gradient(rgba(0,0,0,.2), rgba(0,0,0,.4)), url("images/bg-blue.jpeg");
     background-repeat: no-repeat;
@@ -34,7 +47,7 @@ header {
 
 main {
     margin: 20px auto;
-    max-width: 800px;
+    max-width: 1000px;
     padding: 20px;
     background-color: #f2f2f2;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
@@ -85,5 +98,15 @@ main {
     box-shadow: 0px 0px 5px 1px grey;
     width: 85%;
     height: 8   0%;
+}
+
+.card {
+    padding: 20px;
+    height: 350px;
+    margin: auto;
+}
+  
+.card img {
+    height: 300px;
 }
 
