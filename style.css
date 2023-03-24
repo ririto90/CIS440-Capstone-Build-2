@@ -1,3 +1,4 @@
+/* General */
 body {
     font-family: 'Times New Roman', Times, serif;
     margin: 0;
@@ -20,19 +21,6 @@ h7 {
     font-size: large;
 }
 
-#leaderboard {
-    margin: auto;
-}
-
-#leaderboard td {
-    padding: 10px;
-    font-size: 250%;
-}
-
-.bi-star, .bi-star-fill {
-    color: gold;
-}
-
 header {
     background-image: linear-gradient(rgba(0,0,0,.2), rgba(0,0,0,.4)), url("images/bg-blue.jpeg");
     background-repeat: no-repeat;
@@ -53,6 +41,7 @@ main {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
+/* disscussion board */
 .question {
     background-color: #fff;
     padding: 20px;
@@ -87,6 +76,8 @@ main {
     color: #ffcc00;
 }
 
+/* Profile */
+
 .profile {
     margin-bottom: 20px;
     margin-top: -12px;
@@ -97,12 +88,10 @@ main {
     border-radius: 50%;
     box-shadow: 0px 0px 4px 4px blue;
     width: 150px;
-    height: 150px;
-    
-
-    
+    height: 150px;  
 }
 
+/* Prizes */
 .card {
     padding: 20px;
     height: 350px;
@@ -113,3 +102,16 @@ main {
     height: 300px;
 }
 
+/* Leaderboard */
+#leaderboard {
+    margin: auto;
+}
+
+#leaderboard td {
+    padding: 10px;
+    font-size: 250%;
+}
+
+.bi-star, .bi-star-fill {
+    color: gold;
+}
