@@ -77,22 +77,16 @@ main {
 }
 
 /* Profile */
-
-.profile {
-    margin-bottom: 20px;
-    margin-top: -12px;
-    text-align: center;
+.profile  {
+    margin: auto auto;
 }
 
-.profileimg {
-    border-radius: 50%;
-    box-shadow: 0px 0px 4px 4px blue;
-    width: 150px;
-    height: 150px;  
+.right {
+    text-align: right;
 }
 
 /* Prizes */
-.card {
+.card.prize {
     padding: 20px;
     height: 350px;
     margin: auto;
