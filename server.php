@@ -1,3 +1,4 @@
 <?php
-include 'home.html';
+header("Location: /./html/home.html");
+exit;
 ?>
