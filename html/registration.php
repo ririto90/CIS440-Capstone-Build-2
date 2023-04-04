@@ -34,6 +34,12 @@
                   <label for="psw"><b>Password: </b></label>
                   <input type="password" placeholder="Enter Password" name="psw" required>
                   <br>
+                  <p>Role: </p>
+                  <input type="radio" id="mentor" name="role" value="mentor" required>
+                  <label for="mentor">Mentor</label><br>
+                  <input type="radio" id="mentee" name="role" value="mentee" required>
+                  <label for="mentee">Mentee</label><br>
+                  <br>
                 <div id="buttons">
                   <br>
                   <a href="./home.html"><button type="button" class="cancelbtn">Cancel</button></a>
