@@ -13,7 +13,6 @@
 	<!-- Javascript -->
 	<script type="text/javascript" src="../javascript.js"></script>
     <title>Mentor/Mentee Forum</title>
-	
 </head>
 <body class="scroll-top" data-bs-spy="scroll" data-bs-target=".navbar">
 	<nav class="navbar navbar-expand-md fixed-top navbar-dark" style="background-color: lightblue;">
