@@ -12,14 +12,6 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-// Start session
-session_start();
-
-// Check if user is already logged in
-if (isset($_SESSION['user_id'])) {
-    header("Location: ../html/disscussion_board.php");
-    exit();
-}
 
 // Check if login form has been submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -70,9 +62,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
-<body>
+    <header>
+		<h1>Login</h1>
+		<h7 class="page-subtitle">“A mentor is someone who sees more talent and ability within you, than you see in yourself, and helps bring it out of you.” — Bob Proctor</h5>
+	</header>
+    <main>
     <div class="container">
-        <h1>Login</h1>
         <?php if(isset($error_message)): ?>
             <div class="alert alert-danger" role="alert">
                 <?php echo $error_message; ?>
@@ -88,8 +83,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <input type="password" class="form-control" id="password" name="password" required>
             </div>
             <button type="submit" class="btn btn-primary">Login</button>
-            <a href="./registration.php" class="btn btn-secondary">Create Account</a>
+            <a href="./html/registration.php" class="btn btn-secondary">Create Account</a>
         </form>
     </div>
-</body>
+    </main>
+</body> 
 </html>
