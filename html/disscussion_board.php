@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,6 +37,21 @@
 		<h7 class="page-subtitle">“A mentor is someone who sees more talent and ability within you, than you see in yourself, and helps bring it out of you.” — Bob Proctor</h5>
 	</header>
 	<main>
+		<div class="discussion-post-form">
+			<h2 class="form-title">Create a new discussion post</h2>
+			<form action="../server.php" method="post">
+			  <label for="post-title">Post Title:</label>
+			  <input type="text" id="post-title" name="post-title" required>
+			  
+			  <label for="post-content">Post Content:</label>
+			  <textarea id="post-content" name="post-content" rows="5" required></textarea>
+			  
+			  <label for="post-author">Your Name:</label>
+			  <input type="text" id="post-author" name="post-author" required>
+			  
+			  <button type="submit">Submit Post</button>
+			</form>
+		  </div>
 		<div class="question">
 			<h2>How can I improve my public speaking skills?</h2>
 			<p>I have a big presentation coming up and I'm nervous about speaking in front of a crowd. Any tips or advice?</p>
