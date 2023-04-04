@@ -18,7 +18,7 @@ $post_content = $_POST['post-content'];
 $post_author = $_POST['post-author'];
 
 // Insert the form data into the table
-$sql = "INSERT INTO discussion_posts (post_title, post_content, post_author) VALUES ('$post_title', '$post_content', '$post_author')";
+$sql = "INSERT INTO discussion_questions (post_title, post_content, post_author) VALUES ('$post_title', '$post_content', '$post_author')";
 
 if (mysqli_query($conn, $sql)) {
     echo "New post created successfully";
@@ -28,4 +28,6 @@ if (mysqli_query($conn, $sql)) {
 
 // Close the database connection
 mysqli_close($conn);
+
+include('html/disscussion_board.php')
 ?>
