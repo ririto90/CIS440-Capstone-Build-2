@@ -1,3 +1,45 @@
+<?php
+// Connect to the database
+$host = "107.180.1.16:3306";
+$username = "sprc2023team2";
+$password = "sprc2023team2";
+$dbname = "sprc2023team2";
+
+$conn = mysqli_connect($host, $username, $password, $dbname);
+
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+// Select all discussion posts from the table
+$sql = "SELECT * FROM discussion_posts ORDER BY created_at DESC";
+$result = mysqli_query($conn, $sql);
+
+// Create an HTML variable to hold the discussion post data
+$html = "";
+
+if (mysqli_num_rows($result) > 0) {
+    $html .= "<div>";
+    while ($row = mysqli_fetch_assoc($result)) {
+        $html .= "<h3>" . $row["post_title"] . "</h3>";
+        $html .= "<p>" . $row["post_content"] . "</p>";
+        $html .= "<p>Author: " . $row["post_author"] . "</p>";
+        $html .= "<p>Created at: " . $row["created_at"] . "</p>";
+        $html .= "<hr>";
+    }
+    $html .= "</div>";
+} else {
+    $html .= "<p>No discussion posts found</p>";
+}
+
+// Close the database connection
+mysqli_close($conn);
+
+// Output the HTML code for the discussion posts inside the existing HTML div
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,6 +79,9 @@
 	</header>
 	<main>
 		<div class="discussion-post-form">
+		<?php echo "<div id='discussion-posts'>" . $html . "</div>"; ?>
+		</div>
+		<div class="discussion-post-form">
 			<h2 class="form-title">Create a new discussion post</h2>
 			<form action="../server.php" method="post">
 			  <label for="post-title">Post Title:</label>
@@ -66,3 +111,4 @@
     </main>
 </body>
 </html>
+

@@ -28,4 +28,6 @@ if (mysqli_query($conn, $sql)) {
 
 // Close the database connection
 mysqli_close($conn);
+
+include('html/disscussion_board.php')
 ?>
