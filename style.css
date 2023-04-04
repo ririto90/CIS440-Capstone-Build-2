@@ -13,6 +13,10 @@ nav a:hover {
     transform: scale(1.2);
 }
 
+.navbar-nav {
+    margin-left: auto;
+  }  
+
 h7 {
     font-style: italic;
 }

@@ -17,15 +17,15 @@
 <body class="scroll-top" data-bs-spy="scroll" data-bs-target=".navbar">
 	<nav class="navbar navbar-expand-md fixed-top navbar-dark" style="background-color: lightblue;">
 		<div class="container">
-		  <a class="navbar-brand" href="./profile.html"><i class="bi bi-person-circle"></i></a>
+		  <a class="navbar-brand" href="./profile.php"><i class="bi bi-person-circle"></i></a>
 		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		  </button>
 		  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-			<div class="navbar-nav">
-				<a href="./disscussion_board.html" class="nav-link">Disscussion</a>
-				<a href="./leaderboard.html" class="nav-link">Leaders</a>
-				<a href="./prizes.html" class="nav-link">Prizes</a>
+		  	<div class="navbar-nav">
+				<a href="./disscussion_board.php" class="nav-link">Disscussion</a>
+				<a href="./leaderboard.php" class="nav-link">Leaders</a>
+				<a href="./prizes.php" class="nav-link">Prizes</a>
 				<a onclick="logOut()" class="nav-link">Log Out</a>
 			</div>
 		  </div>
@@ -40,19 +40,19 @@
 			<div class="container">
 			<section id="prize-section">
 				<div class="row">
-				  <div class="card prize" style="width: 19rem;">
+				  <div class="card prize col-12 col-sm-6 col-lg-3" style="width: 19rem;">
 					<img src="../images/1stPlace.png" class="card-img-top">
 					  <div class="card-body">
 						<p class="card-text">$500 Gift Card</p>
 					  </div>
 				  </div>
-				  <div class="card prize" style="width: 19rem;">
+				  <div class="card prize col-12 col-sm-6 col-lg-3" style="width: 19rem;">
 					<img src="../images/2ndPlace.png" class="card-img-top">
 					  <div class="card-body">
 						<p class="card-text">$300 Gift Card</p>
 					  </div>
 				  </div>
-				  <div class="card prize" style="width: 19rem;">
+				  <div class="card prize col-12 col-sm-6 col-lg-3" style="width: 19rem;">
 					<img src="../images/3rdPlace.png" class="card-img-top">
 					  <div class="card-body">
 						<p class="card-text">$100 Gift Card</p>
