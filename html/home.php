@@ -62,26 +62,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
-<nav class="navbar navbar-expand-md fixed-top navbar-dark" style="background-color: lightblue;">
-		<div class="container">
-		  <a class="navbar-brand" href="./profile.php"><i class="bi bi-person-circle"></i></a>
-		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		  </button>
-		  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-			<div class="navbar-nav">
-				<a href="./disscussion_board.php" class="nav-link">Disscussion</a>
-				<a href="./leaderboard.php" class="nav-link">Leaders</a>
-				<a href="./prizes.php" class="nav-link">Prizes</a>
-				<a onclick="logOut()" class="nav-link">Log Out</a>
-			</div>
-		  </div>
-		</div>
-	  </nav>
     <header>
-		<h1>Mentor/Mentee Forum</h1>
+		<h1>Login</h1>
 		<h7 class="page-subtitle">“A mentor is someone who sees more talent and ability within you, than you see in yourself, and helps bring it out of you.” — Bob Proctor</h5>
 	</header>
+    <main>
     <div class="container">
         <?php if(isset($error_message)): ?>
             <div class="alert alert-danger" role="alert">
@@ -101,5 +86,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <a href="./html/registration.php" class="btn btn-secondary">Create Account</a>
         </form>
     </div>
+    </main>
 </body> 
 </html>
