@@ -30,8 +30,8 @@
 			<input id="password" name="password" type="password" placeholder="password">
 			<br>
 			<br>
-			<a href="./disscussion_board.html"><button type="button">Login</button></a>
-			<a href="./registration.html"><button type="button">Create Account</button></a>
+			<a href="./disscussion_board.php"><button type="button">Login</button></a>
+			<a href="./registration.php"><button type="button">Create Account</button></a>
 		</div>
     </main>
 </body>
