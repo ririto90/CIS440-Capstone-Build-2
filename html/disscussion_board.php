@@ -13,7 +13,7 @@ if (!$conn) {
 }
 
 // Select all discussion posts from the table
-$sql = "SELECT * FROM discussion_posts ORDER BY created_at DESC";
+$sql = "SELECT * FROM discussion_questions ORDER BY created_at DESC";
 $result = mysqli_query($conn, $sql);
 
 // Create an HTML variable to hold the discussion post data
