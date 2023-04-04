@@ -1,3 +1,41 @@
+<?php
+// Connect to the database
+$host = "107.180.1.16:3306";
+$username = "sprc2023team2";
+$password = "sprc2023team2";
+$dbname = "sprc2023team2";
+
+$conn = mysqli_connect($host, $username, $password, $dbname);
+
+// Check if connection was successful
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  $name = $_POST['name'];
+  $email = $_POST['email'];
+  $password = $_POST['psw'];
+
+  // Prepare statement
+  $stmt = $conn->prepare("INSERT INTO users (username, password, email, role_id) VALUES (?, ?, ?, 1)");
+  $stmt->bind_param("sss", $name, $password, $email);
+  // Execute statement
+  if ($stmt->execute() === TRUE) {
+      echo "Account created successfully";
+      header("Location: ../html/disscussion_board.php");
+      exit();
+  } else {
+      echo "Error: " . $stmt->error;
+  }
+
+  $stmt->close();
+  $conn->close();
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +57,7 @@
 		  <h1 style="font-size: 500%;">Create An Account</h1>
 	  </header>
     <main class="account">
-        <form>
+        <form method="POST">
             <div class="container">
                 <h1>Sign Up</h1>
                 <p>Please fill in this form to create an account.</p>
@@ -36,8 +74,8 @@
                   <br>
                 <div id="buttons">
                   <br>
-                  <a href="./home.html"><button type="button" class="cancelbtn">Cancel</button></a>
-                  <a href="./disscussion_board.html"><button type="submit" class="signupbtn">Sign Up</button></a>
+                  <a href="./home.php"><button type="button" class="cancelbtn">Cancel</button></a>
+                  <a href="./disscussion_board.php"><button type="submit" class="signupbtn">Sign Up</button></a>
                 </div>
                 </div>
             </div>
