@@ -26,7 +26,7 @@ h7 {
 }
 
 header {
-    background-image: linear-gradient(rgba(0,0,0,.2), rgba(0,0,0,.4)), url("images/bg-blue.jpeg");
+    background-image: linear-gradient(rgba(0,0,0,.2), rgba(0,0,0,.4)), url("./images/bg-blue.jpeg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
