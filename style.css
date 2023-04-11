@@ -5,8 +5,12 @@ body {
     padding: 0;
 }
 
+.navbar {
+    background-color: lightblue;
+}
+
 nav a {
-    font-size: large;
+    font-size: 2vw;
 }
 
 nav a:hover {
@@ -22,7 +26,7 @@ h7 {
 }
 
 #buttons {
-    font-size: large;
+    font-size: 1vw;
 }
 
 header {
@@ -32,47 +36,47 @@ header {
     background-size: cover;
 	background-attachment: fixed;
     color: #fff;
-    padding-top: 90px;
-    padding-bottom: 40px;
+    padding-top: 12vh;
+    padding-bottom: 6vh;
     text-align: center;
 }
 
 main {
-    margin: 20px auto;
-    max-width: 1000px;
-    padding: 20px;
+    margin: 3vh auto;
+    max-width: 70vw;
+    padding: 2vw;
     background-color: #f2f2f2;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 1vw rgba(0, 0, 0, 0.3);
 }
 
 /* disscussion board */
 .question {
     background-color: #fff;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    padding: 2vw;
+    margin-bottom: 2vh;
+    box-shadow: 0 0 1vw rgba(0, 0, 0, 0.2);
 }
 .question h2 {
     margin-top: 0;
 }
 .question p {
-    margin-top: 10px;
+    margin-top: 1vh;
     margin-bottom: 0;
 }
 .rating {
     display: flex;
     align-items: center;
-    margin-top: 10px;
+    margin-top: 1vh;
 }
 .rating label {
-    margin-right: 10px;
+    margin-right: 1vw;
 }
 .rating input[type="radio"] {
     display: none;
 }
 .rating label:before {
     content: "\2606";
-    font-size: 20px;
+    font-size: 2vw;
     color: #ddd;
 }
 .rating input[type="radio"]:checked ~ label:before {
@@ -81,23 +85,51 @@ main {
 }
 
 /* Profile */
-.profile  {
-    margin: auto auto;
+
+#profile {
+    font-size: 10vh;
+    color: lightblue;
 }
 
-.right {
-    text-align: right;
+.aboutMe {
+    margin: auto;
+}
+
+.aboutMe td {
+ padding-left: 2vw;
+ padding-right: 2vw;
+ font-size: 2vw;
+}
+
+#name {
+    text-align: center;
+    font-size: 2vw;
+}
+
+.card.profile {
+    margin: auto;
+    height: 40vh;
+    min-width: 20vw;
 }
 
 /* Prizes */
 .card.prize {
-    padding: 20px;
-    height: 350px;
+    padding: 1vw;
+    height: 45vh;
+    width: 20vw;
     margin: auto;
 }
   
 .card img {
-    height: 300px;
+    height: 40vh;
+}
+
+#prize-section {
+    margin: auto;
+}
+
+.card-text {
+    text-align: center;
 }
 
 /* Leaderboard */
@@ -106,49 +138,61 @@ main {
 }
 
 #leaderboard td {
-    padding: 10px;
-    font-size: 200%;
+    padding: 1vw;
+    font-size: 2vw;
 }
 
 .bi-star, .bi-star-fill {
     color: gold;
 }
 
+.bi-trophy-fill {
+    font-size: 3vw; 
+    color: lightblue;
+}
+
+/* registration */
+
+#inputs {
+    text-align:center; 
+    font-size: 1vw;
+}
+
+/* disscussion board */
 .discussion-post-form {
     background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1vw;
+    border-radius: .5vw;
+    box-shadow: 0 .1vw .2vw rgba(0, 0, 0, 0.1);
   }
   
-  .form-title {
-    font-size: 24px;
+.form-title {
+    font-size: 2vw;
     margin-top: 0;
-    margin-bottom: 20px;
+    margin-bottom: 3vh;
   }
   
-  label {
+label {
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 1vh;
     font-weight: bold;
   }
   
   input[type="text"],
   textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 20px;
+    padding: .5vw;
+    border: .01vw solid #ccc;
+    border-radius: .3vw;
+    margin-bottom: 2.5vh;
   }
   
-  button[type="submit"] {
-    background-color: #008080;
+.btn {
+    background-color: #008CC6;
     color: #fff;
     border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
+    border-radius: .3vw;
+    padding: 1.3vh .7vw;
+    font-size: 1vw;
     cursor: pointer;
   }
 

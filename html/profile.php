@@ -21,7 +21,7 @@
     <title>Mentor/Mentee Forum</title>
 </head>
 <body class="scroll-top" data-bs-spy="scroll" data-bs-target=".navbar">
-	<nav class="navbar navbar-expand-md fixed-top navbar-dark" style="background-color: lightblue;">
+	<nav class="navbar navbar-expand-md fixed-top navbar-dark">
 		<div class="container">
 		  <a class="navbar-brand" href="./profile.php"><i class="bi bi-person-circle"></i></a>
 		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,56 +40,68 @@
     </nav>
 	<header>
 		<h1 class="page-title">My Profile</h1>
-		<h7 class="page-subtitle">"To be yourself in a world that is constantly trying to make you something else is the greatest accomplishment." ― Ralph Waldo Emerson</h5>
+		<h7 class="page-subtitle">"To be yourself in a world that is constantly trying to make you something else is the greatest accomplishment." ― Ralph Waldo Emerson</h7>
 	</header>
 	<main>
-        <center><i class="bi bi-person-circle" style="font-size: 100px;"></i></center>
-        <center><h2>Javier Rivera</h2></center>
-        <center><h7>Mentor</h7></center>
-        <br>
-        <div class="card">
-              <div class="card-body">
-                <p class="card-text">
-                    <table>
-                        <tr>
-                            <td class="right">Email</td>
-                            <td>:</td>
-                            <td>jrivera@gmail.com</td>
-                        </tr>
-                        <tr>
-                            <td class="right">Position</td>
-                            <td>:</td>
-                            <td>Web Developer</td>
-                        </tr>
-                        <tr>
-                            <td class="right">Career Goals</td>
-                            <td>:</td>
-                            <td>Promotion, Becoming Manager</td>
-                        </tr>
-                        <tr>
-                            <td class="right">Alma Mater</td>
-                            <td>:</td>
-                            <td>Arizona State University</td>
-                        </tr>
-                        <tr>
-                            <td class="right">Interests</td>
-                            <td>:</td>
-                            <td>Football</td>
-                        </tr>
-                        <tr>
-                            <td class="right">Posts</td>
-                            <td>:</td>
-                            <td>2</td>
-                        </tr>
-                        <tr>
-                            <td class="right">Replies</td>
-                            <td>:</td>
-                            <td>2</td>
-                        </tr>
-                    </table>
-                </p>
-              </div>
-          </div>
+        <div class="container">
+            <section id="profileCard">
+                <div class="row">
+                    <div id="info" class="card profile">
+                        <div class="card-body">
+                            <div class="card-text">
+                                <i id="profile" class="bi bi-person-circle"></i>
+                                <p id="name">Javier Rivera</p>
+                                <p id="role">Mentor</p> 
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div id="about" class="card profile">
+                        <div class="card-body">
+                            <p class="card-text">
+                                <table class="aboutMe">
+                                    <tr>
+                                        <td>Email</td>
+                                        <td>:</td>
+                                        <td>jrivera@gmail.com</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Position </td>
+                                        <td>:</td>
+                                        <td>Web Developer</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Career Goals</td>
+                                        <td>:</td>
+                                        <td>Promotion, Becoming Manager</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Alma Mater</td>
+                                        <td>:</td>
+                                        <td>Arizona State University</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Interests</td>
+                                        <td>:</td>
+                                        <td>Football</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Posts</td>
+                                        <td>:</td>
+                                        <td>2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Replies</td>
+                                        <td>:</td>
+                                        <td>2</td>
+                                    </tr>
+                                </table>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
 	</main>
 </body>
 </html>

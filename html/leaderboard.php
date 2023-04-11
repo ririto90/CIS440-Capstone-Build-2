@@ -22,7 +22,7 @@
 </head>
 
 <body class="scroll-top" data-bs-spy="scroll" data-bs-target=".navbar">
-	<nav class="navbar navbar-expand-md fixed-top navbar-dark" style="background-color: lightblue;">
+	<nav class="navbar navbar-expand-md fixed-top navbar-dark">
 		<div class="container">
 		  <a class="navbar-brand" href="./profile.php"><i class="bi bi-person-circle"></i></a>
 		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,7 +44,7 @@
             "A genuine leader is not a searcher for consensus but a molder of consensus." — Martin Luther King Jr.</h5>
 	</header>
 	<main>
-		<center><i class="bi bi-trophy-fill" style="font-size:xxx-large; color: lightblue;"></i></center>
+		<center><i class="bi bi-trophy-fill"></i></center>
 		<table id="leaderboard">
 			<tr>
 				<td><i class="bi bi-1-circle-fill" style="color: gold;"></i></td>   

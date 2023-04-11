@@ -15,7 +15,7 @@
     <title>Mentor/Mentee Forum</title>
 </head>
 <body class="scroll-top" data-bs-spy="scroll" data-bs-target=".navbar">
-	<nav class="navbar navbar-expand-md fixed-top navbar-dark" style="background-color: lightblue;">
+	<nav class="navbar navbar-expand-md fixed-top navbar-dark">
 		<div class="container">
 		  <a class="navbar-brand" href="./profile.php"><i class="bi bi-person-circle"></i></a>
 		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,23 +36,22 @@
 		<h7 class="page-subtitle">“The key is not the will to win… everybody has that. It is the will to prepare to win that is important.” — Bobby Knight</h5>
 	</header>
 	<main>
-		<center>
 			<div class="container">
 			<section id="prize-section">
 				<div class="row">
-				  <div class="card prize col-12 col-sm-6 col-lg-3" style="width: 19rem;">
+				  <div class="card prize">
 					<img src="../images/1stPlace.png" class="card-img-top">
 					  <div class="card-body">
 						<p class="card-text">$500 Gift Card</p>
 					  </div>
 				  </div>
-				  <div class="card prize col-12 col-sm-6 col-lg-3" style="width: 19rem;">
+				  <div class="card prize">
 					<img src="../images/2ndPlace.png" class="card-img-top">
 					  <div class="card-body">
 						<p class="card-text">$300 Gift Card</p>
 					  </div>
 				  </div>
-				  <div class="card prize col-12 col-sm-6 col-lg-3" style="width: 19rem;">
+				  <div class="card prize">
 					<img src="../images/3rdPlace.png" class="card-img-top">
 					  <div class="card-body">
 						<p class="card-text">$100 Gift Card</p>
@@ -61,5 +60,4 @@
 				</div>
 			  </section>
 			</div>
-		</center>
     </main>

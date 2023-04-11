@@ -26,7 +26,7 @@ if (mysqli_num_rows($result) > 0) {
         $html .= "<p>" . $row["post_content"] . "</p>";
         $html .= "<p>Author: " . $row["post_author"] . "</p>";
         $html .= "<p>Created at: " . $row["created_at"] . "</p>";
-		$html .= "<button class='reply-btn' data-post-id='" . $row["id"] . "'>Reply</button>";
+		$html .= "<button class='reply-btn btn' data-post-id='" . $row["id"] . "'>Reply</button>";
 		$html .= "<div class='reply-form' data-post-id='" . $row["id"] . "' style='display:none;'>";
 		$html .= "<form action='../server.php' method='post'>";
 		$html .= "<input type='hidden' name='parent_post_id' value='" . $row["id"] . "'>";
@@ -34,7 +34,7 @@ if (mysqli_num_rows($result) > 0) {
 		$html .= "<textarea id='post-content-" . $row["id"] . "' name='post-content' rows='3' required></textarea>";
 		$html .= "<label for='post-author-" . $row["id"] . "'>Your Name:</label>";
 		$html .= "<input type='text' id='post-author-" . $row["id"] . "' name='post-author' required>";
-		$html .= "<button type='submit'>Submit Reply</button>";
+		$html .= "<button type='submit' class='btn'>Submit Reply</button>";
 		$html .= "</form>";
 		$html .= "</div>";
         $html .= "<hr>";
@@ -85,7 +85,7 @@ mysqli_close($conn);
     });
 </script>
 <body>
-	<nav class="navbar navbar-expand-md fixed-top navbar-dark" style="background-color: lightblue;">
+	<nav class="navbar navbar-expand-md fixed-top navbar-dark">
 		<div class="container">
 		  <a class="navbar-brand" href="./profile.php"><i class="bi bi-person-circle"></i></a>
 		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -121,7 +121,7 @@ mysqli_close($conn);
 			  <label for="post-author">Your Name:</label>
 			  <input type="text" id="post-author" name="post-author" required>
 			  
-			  <button type="submit">Submit Post</button>
+			  <button type="submit" class="btn">Submit Post</button>
 			</form>
 		  </div>
 		<div class="question">
