@@ -3,3 +3,5 @@ function logOut() {
 		location.href = "../html/home.php";
 	} else {}
 }
+
+//php -S localhost:8000
