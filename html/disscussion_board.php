@@ -26,7 +26,19 @@ if (mysqli_num_rows($result) > 0) {
         $html .= "<p>" . $row["post_content"] . "</p>";
         $html .= "<p>Author: " . $row["post_author"] . "</p>";
         $html .= "<p>Created at: " . $row["created_at"] . "</p>";
+		$html .= "<button class='reply-btn' data-post-id='" . $row["id"] . "'>Reply</button>";
+		$html .= "<div class='reply-form' data-post-id='" . $row["id"] . "' style='display:none;'>";
+		$html .= "<form action='../server.php' method='post'>";
+		$html .= "<input type='hidden' name='parent_post_id' value='" . $row["id"] . "'>";
+		$html .= "<label for='post-content-" . $row["id"] . "'>Your Reply:</label>";
+		$html .= "<textarea id='post-content-" . $row["id"] . "' name='post-content' rows='3' required></textarea>";
+		$html .= "<label for='post-author-" . $row["id"] . "'>Your Name:</label>";
+		$html .= "<input type='text' id='post-author-" . $row["id"] . "' name='post-author' required>";
+		$html .= "<button type='submit'>Submit Reply</button>";
+		$html .= "</form>";
+		$html .= "</div>";
         $html .= "<hr>";
+
     }
     $html .= "</div>";
 } else {
@@ -56,6 +68,16 @@ mysqli_close($conn);
 	<script type="text/javascript" src="./javascript.js"></script>
     <title>Mentor/Mentee Forum</title>
 </head>
+<script>
+    const replyBtns = document.querySelectorAll('.reply-btn');
+    replyBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const postId = btn.dataset.postId;
+            const replyForm = document.querySelector(`.reply-form[data-post-id='${postId}']`);
+            replyForm.style.display = (replyForm.style.display === 'none') ? 'block' : 'none';
+        });
+    });
+</script>
 <body>
 	<nav class="navbar navbar-expand-md fixed-top navbar-dark" style="background-color: lightblue;">
 		<div class="container">
