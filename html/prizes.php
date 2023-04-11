@@ -23,7 +23,7 @@
 		  </button>
 		  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 		  	<div class="navbar-nav">
-				<a href="./disscussion_board.php" class="nav-link">Disscussion</a>
+				<a href="./disscussion_board.php" class="nav-link">Discussion</a>
 				<a href="./leaderboard.php" class="nav-link">Leaders</a>
 				<a href="./prizes.php" class="nav-link">Prizes</a>
 				<a onclick="logOut()" class="nav-link">Log Out</a>
