@@ -49,35 +49,35 @@
 			<tr>
 				<td><i class="bi bi-1-circle-fill" style="color: gold;"></i></td>   
 				<td><i class="bi bi-person-circle"></i></td>  
-				<td>Mentor Name</td>
+				<td>Diane Lam</td>
 				<td><i class="bi bi-star-fill"></i>  <i class="bi bi-star-fill"></i>  <i class="bi bi-star-fill"></i>  <i class="bi bi-star-fill"></i>  <i class="bi bi-star-fill"></i></td>
 				<td>2980</td>
 			</tr>
 			<tr>
 				<td><i class="bi bi-2-circle-fill" style="color: silver;"></i></td>   
 				<td><i class="bi bi-person-circle"></i></td>  
-				<td>Mentor Name</td>
+				<td>Tegan Hartley</td>
 				<td><i class="bi bi-star-fill"></i>  <i class="bi bi-star-fill"></i>  <i class="bi bi-star-fill"></i>  <i class="bi bi-star-fill"></i>  <i class="bi bi-star"></i></td>
 				<td>2721</td>
 			</tr>
 			<tr>
 				<td><i class="bi bi-3-circle-fill" style="color: brown;"></i></td>   
 				<td><i class="bi bi-person-circle"></i></td>  
-				<td>Mentor Name</td>
+				<td>Faiza Brennan</td>
 				<td><i class="bi bi-star-fill"></i>  <i class="bi bi-star-fill"></i>  <i class="bi bi-star-fill"></i>  <i class="bi bi-star"></i>  <i class="bi bi-star"></i></td>
 				<td>2579</td>
 			</tr>
 			<tr>
 				<td><i class="bi bi-4-circle-fill" style="color: green;"></i></td>   
 				<td><i class="bi bi-person-circle"></i></td>
-				<td>Mentor Name</td>
+				<td>Brendan Quinn</td>
 				<td><i class="bi bi-star-fill"></i>  <i class="bi bi-star-fill"></i>  <i class="bi bi-star-fill"></i>  <i class="bi bi-star"></i>  <i class="bi bi-star"></i></td>
 				<td>1874</td>
 			</tr>
 			<tr>
 				<td><i class="bi bi-5-circle-fill" style="color: blue;"></i></td>   
 				<td><i class="bi bi-person-circle"></i></td>
-				<td>Mentor Name</td>
+				<td>Sachin Whitaker</td>
 				<td><i class="bi bi-star-fill"></i>  <i class="bi bi-star-fill"></i>  <i class="bi bi-star"></i>  <i class="bi bi-star"></i>  <i class="bi bi-star"></i></td>
 				<td>1756</td>
 			</tr>
