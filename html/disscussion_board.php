@@ -17,32 +17,53 @@ $sql = "SELECT * FROM discussion_questions ORDER BY created_at DESC";
 $result = mysqli_query($conn, $sql);
 
 // Create an HTML variable to hold the discussion post data
-$html = "";
+$questions_html = "";
 
 if (mysqli_num_rows($result) > 0) {
-    $html .= "<div>";
+	$questions_html .= "<div>";
     while ($row = mysqli_fetch_assoc($result)) {
-        $html .= "<h3>" . $row["post_title"] . "</h3>";
-        $html .= "<p>" . $row["post_content"] . "</p>";
-        $html .= "<p>Author: " . $row["post_author"] . "</p>";
-        $html .= "<p>Created at: " . $row["created_at"] . "</p>";
-		$html .= "<button class='reply-btn' data-post-id='" . $row["id"] . "'>Reply</button>";
-		$html .= "<div class='reply-form' data-post-id='" . $row["id"] . "' style='display:none;'>";
-		$html .= "<form action='../server.php' method='post'>";
-		$html .= "<input type='hidden' name='parent_post_id' value='" . $row["id"] . "'>";
-		$html .= "<label for='post-content-" . $row["id"] . "'>Your Reply:</label>";
-		$html .= "<textarea id='post-content-" . $row["id"] . "' name='post-content' rows='3' required></textarea>";
-		$html .= "<label for='post-author-" . $row["id"] . "'>Your Name:</label>";
-		$html .= "<input type='text' id='post-author-" . $row["id"] . "' name='post-author' required>";
-		$html .= "<button type='submit'>Submit Reply</button>";
-		$html .= "</form>";
-		$html .= "</div>";
-        $html .= "<hr>";
+        $questions_html .= "<h3>" . $row["post_title"] . "</h3>";
+        $questions_html .= "<p>" . $row["post_content"] . "</p>";
+        $questions_html .= "<p>Author: " . $row["post_author"] . "</p>";
+        $questions_html .= "<p>Created at: " . $row["created_at"] . "</p>";
+		$questions_html .= "<button class='reply-btn btn' data-post-id='" . $row["id"] . "'>Reply</button>";
+		$questions_html .= "<div class='reply-form' data-post-id='" . $row["id"] . "' style='display:none;'>";
+		$questions_html .= "<form action='../replies_POST.php' method='post'>";
+		$questions_html .= "<input type='hidden' name='questions_id' value='" . $row["id"] . "'>";
+		$questions_html .= "<label for='post-content-" . $row["id"] . "'>Your Reply:</label>";
+		$questions_html .= "<textarea id='post-content-" . $row["id"] . "' name='content' rows='3' required></textarea>";
+		$questions_html .= "<label for='post-author-" . $row["id"] . "'>Your Name:</label>";
+		$questions_html .= "<input type='text' id='post-author-" . $row["id"] . "' name='author' required>";
+		$questions_html .= "<button type='submit' class='btn'>Submit Reply</button>";
+		$questions_html .= "</form>";
+		$questions_html .= "</div>";
+        $questions_html .= "<hr>";
 
+        // Select all replies for the current question
+        $question_id = $row["id"];
+        $replies_sql = "SELECT * FROM discussion_replies WHERE question_id = '$question_id' ORDER BY created_at DESC";
+        $replies_result = mysqli_query($conn, $replies_sql);
+
+        // Create an HTML variable to hold the reply data
+        $replies_html = "";
+
+        if (mysqli_num_rows($replies_result) > 0) {
+            $replies_html .= "<div>";
+            while ($reply_row = mysqli_fetch_assoc($replies_result)) {
+                $replies_html .= "<p>" . $reply_row["content"] . "</p>";
+                $replies_html .= "<p>Created at: " . $reply_row["created_at"] . "</p>";
+            }
+            $replies_html .= "</div>";
+        } else {
+            $replies_html .= "<p>No replies found</p>";
+        }
+
+        // Add the reply data to the question data
+        $questions_html .= "<div>" . $replies_html . "</div>";
+        $questions_html .= "<hr>";
     }
-    $html .= "</div>";
 } else {
-    $html .= "<p>No discussion posts found</p>";
+    $questions_html .= "<p>No questions found</p>";
 }
 
 
@@ -99,11 +120,11 @@ mysqli_close($conn);
 	</header>
 	<main>
 		<div class="discussion-post-form">
-		<?php echo "<div id='discussion-posts'>" . $html . "</div>"; ?>
+		<?php echo "<div id='discussion-posts'>" . $questions_html . "</div>"; ?>
 		</div>
 		<div class="discussion-post-form">
 			<h2 class="form-title">Create a new discussion post</h2>
-			<form action="../server.php" method="post">
+			<form action="../questions_POST.php" method="post">
 			  <label for="post-title">Post Title:</label>
 			  <input type="text" id="post-title" name="post-title" required>
 			  
