@@ -133,7 +133,7 @@ mysqli_close($conn);
 			  <label for="post-author">Your Name:</label>
 			  <input type="text" id="post-author" name="post-author" required>
 			  
-			  <button type="submit">Submit Post</button>
+			  <button type="submit" class="btn">Submit Post</button>
 			</form>
 		  </div>
     </main>
