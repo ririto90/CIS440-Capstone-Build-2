@@ -27,6 +27,7 @@ if (mysqli_num_rows($result) > 0) {
         $questions_html .= "<p>Author: " . $row["post_author"] . "</p>";
         $questions_html .= "<p>Created at: " . $row["created_at"] . "</p>";
 		$questions_html .= "<button class='reply-btn btn' data-post-id='" . $row["id"] . "'>Reply</button>";
+		$questions_html .= "<button class='like-btn' data-post-id='" . $row["id"] . "'><i class='fa fa-heart-o'></i></button>";
 		$questions_html .= "<div class='reply-form' data-post-id='" . $row["id"] . "' style='display:none;'>";
 		$questions_html .= "<form action='../replies_POST.php' method='post'>";
 		$questions_html .= "<input type='hidden' name='questions_id' value='" . $row["id"] . "'>";
@@ -61,12 +62,27 @@ if (mysqli_num_rows($result) > 0) {
         // Add the reply data to the question data
         $questions_html .= "<div>" . $replies_html . "</div>";
         $questions_html .= "<hr>";
+        $questions_html  .= "<h3>" . $row["post_title"] . "</h3>";
+        $questions_html .= "<p>" . $row["post_content"] . "</p>";
+        $questions_html .= "<p>Author: " . $row["post_author"] . "</p>";
+        $questions_html .= "<p>Created at: " . $row["created_at"] . "</p>";
+		$questions_html .= "<button class='reply-btn' data-post-id='" . $row["id"] . "'>Reply</button>";
+		$questions_html .= "<button class='like-btn' data-post-id='" . $row["id"] . "'><i class='fa fa-heart-o'></i></button>";
+		$questions_html .= "<div class='reply-form' data-post-id='" . $row["id"] . "' style='display:none;'>";
+		$questions_html .= "<form action='../server.php' method='post'>";
+		$questions_html .= "<input type='hidden' name='parent_post_id' value='" . $row["id"] . "'>";
+		$questions_html .= "<label for='post-content-" . $row["id"] . "'>Your Reply:</label>";
+		$questions_html .= "<textarea id='post-content-" . $row["id"] . "' name='post-content' rows='3' required></textarea>";
+		$questions_html .= "<label for='post-author-" . $row["id"] . "'>Your Name:</label>";
+		$questions_html .= "<input type='text' id='post-author-" . $row["id"] . "' name='post-author' required>";
+		$questions_html .= "<button type='submit'>Submit Reply</button>";
+		$questions_html .= "</form>";
+		$questions_html .= "</div>";
+        $questions_html .= "<hr>";
     }
 } else {
     $questions_html .= "<p>No questions found</p>";
 }
-
-
 
 // Close the database connection
 mysqli_close($conn);
@@ -83,6 +99,7 @@ mysqli_close($conn);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Popper JS -->
@@ -151,6 +168,17 @@ mysqli_close($conn);
         </div>
     </main>
 <script>
+	var likeBtns = document.getElementsByClassName('like-btn');
+	for (var i = 0; i < likeBtns.length; i++) {
+	likeBtns[i].addEventListener('click', function() {
+		if (this.style.color === 'red') {
+		this.style.color = '';
+		} else {
+		this.style.color = 'red';
+		}
+	});
+	}
+
     const replyBtns = document.querySelectorAll('.reply-btn');
     replyBtns.forEach(btn => {
         btn.addEventListener('click', () => {
