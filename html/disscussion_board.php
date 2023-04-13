@@ -29,7 +29,7 @@ if (mysqli_num_rows($result) > 0) {
 		$questions_html .= "<button class='reply-btn btn' data-post-id='" . $row["id"] . "'>Reply</button>";
 		$questions_html .= "<div class='reply-form' data-post-id='" . $row["id"] . "' style='display:none;'>";
 		$questions_html .= "<form action='../replies_POST.php' method='post'>";
-		$questions_html .= "<input type='hidden' name='questions_id' value='" . $row["id"] . "'>";
+		$questions_html .= "<input type='hidden' name='question_id' value='" . $row["id"] . "'>";
 		$questions_html .= "<label for='post-content-" . $row["id"] . "'>Your Reply:</label>";
 		$questions_html .= "<textarea id='post-content-" . $row["id"] . "' name='content' rows='3' required></textarea>";
 		$questions_html .= "<label for='post-author-" . $row["id"] . "'>Your Name:</label>";
@@ -65,8 +65,6 @@ if (mysqli_num_rows($result) > 0) {
 } else {
     $questions_html .= "<p>No questions found</p>";
 }
-
-
 
 // Close the database connection
 mysqli_close($conn);
@@ -137,18 +135,6 @@ mysqli_close($conn);
 			  <button type="submit">Submit Post</button>
 			</form>
 		  </div>
-		<div class="question">
-			<h2>How can I improve my public speaking skills?</h2>
-			<p>I have a big presentation coming up and I'm nervous about speaking in front of a crowd. Any tips or advice?</p>
-			<div class="rating">
-				<label>Rate this question:</label>
-				<input type="radio" name="rating" value="1"><label></label>
-				<input type="radio" name="rating" value="2"><label></label>
-				<input type="radio" name="rating" value="3"><label></label>
-				<input type="radio" name="rating" value="4"><label></label>
-				<input type="radio" name="rating" value="5"><label></label>
-            </div>
-        </div>
     </main>
 <script>
     const replyBtns = document.querySelectorAll('.reply-btn');
