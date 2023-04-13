@@ -159,6 +159,15 @@ main {
     font-size: 1vw;
 }
 
+#inputs table {
+    margin: auto auto;
+}
+
+#inputs table td {
+    padding-left: 1vw;
+    padding-right: 1vw;
+}
+
 /* disscussion board */
 .discussion-post-form {
     background-color: #fff;
@@ -195,8 +204,10 @@ label {
     padding: 1.3vh .7vw;
     font-size: 1vw;
     cursor: pointer;
+    margin:1px;
   }
 
 #role {
     display:inline-block;
 }
+

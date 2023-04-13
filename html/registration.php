@@ -69,24 +69,56 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <p>Please fill in this form to create an account.</p>
                 <hr>
                 <div id="inputs">
-                  <label for="name"><b>Username: </b></label>
-                  <input type="text" placeholder="Enter Username" name="name" required>
-                  <br>
-                  <label for="email"><b>Email: </b></label>
-                  <input type="text" placeholder="Enter Email" name="email" required>
-                  <br>
-                  <label for="psw"><b>Password: </b></label>
-                  <input type="password" placeholder="Enter Password" name="psw" required>
-                  <br>
-                  <p><b>Role:</b></p>
-                  <input type="radio" id="mentor" name="role" value="mentor" required>
-                  <label id="role">Mentor</label>
-                  <input type="radio" id="mentee" name="role" value="mentee" required>
-                  <label id="role">Mentee</label>
+                  <table>
+                    <tr>
+                      <td>
+                        <label for="name"><b>Username: </b></label>
+                        <input type="text" placeholder="Enter Username" name="name" required>
+                      </td>
+                      <td>
+                        <label for="email"><b>Email: </b></label>
+                        <input type="text" placeholder="Enter Email" name="email" required>
+                      </td>
+                      <td>
+                        <label for="psw"><b>Password: </b></label>
+                        <input type="password" placeholder="Enter Password" name="psw" required>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <label for="position"><b>Position: </b></label>
+                        <input type="text" placeholder="Enter Position" name="position" required>
+                      </td>
+                      <td>
+                        <label for="career"><b>Career Goals: </b></label>
+                        <input type="text" placeholder="Enter Career Goals" name="career" required>
+                      </td>
+                      <td>
+                        <label for="alma"><b>Alma Mater: </b></label>
+                        <input type="text" placeholder="Enter Alma Mater" name="alma" required>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                      <label for="interest"><b>Interests: </b></label>
+                      <input type="text" placeholder="Enter Interests" name="interest" required>
+                      </td>
+                      <td>
+                        <p><b>Role:</b></p>
+                      </td>
+                      <td>
+                        <input type="radio" id="mentor" name="role" value="mentor" required>
+                        <label id="role">Mentor</label>
+                        <br>
+                        <input type="radio" id="mentee" name="role" value="mentee" required>
+                        <label id="role">Mentee</label>
+                      </td>
+                    </tr>
+                  </table>
                 <div id="buttons">
                   <br>
-                  <a href="./home.php"><button type="button" class="cancelbtn">Cancel</button></a>
-                  <a href="./disscussion_board.php"><button type="submit" class="signupbtn">Sign Up</button></a>
+                  <a href="./home.php"><button type="button" class="btn">Cancel</button></a>
+                  <a href="./disscussion_board.php"><button type="submit" class="btn">Sign Up</button></a>
                 </div>
                 </div>
             </div>
