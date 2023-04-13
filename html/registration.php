@@ -78,6 +78,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                   <label for="psw"><b>Password: </b></label>
                   <input type="password" placeholder="Enter Password" name="psw" required>
                   <br>
+                  <label for="position"><b>Position: </b></label>
+                  <input type="text" placeholder="Enter Position" name="position" required>
+                  <br>
+                  <label for="career"><b>Career Goals: </b></label>
+                  <input type="text" placeholder="Enter Career Goals" name="career" required>
+                  <br>
+                  <label for="alma"><b>Alma Mater: </b></label>
+                  <input type="text" placeholder="Enter Alma Mater" name="alma" required>
+                  <br>
+                  <label for="interest"><b>Interests: </b></label>
+                  <input type="text" placeholder="Enter Interests" name="interest" required>
+                  <br>
                   <p><b>Role:</b></p>
                   <input type="radio" id="mentor" name="role" value="mentor" required>
                   <label id="role">Mentor</label>
