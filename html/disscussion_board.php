@@ -60,25 +60,7 @@ if (mysqli_num_rows($result) > 0) {
         }
 
         // Add the reply data to the question data
-        $questions_html .= "<div>" . $replies_html . "</div>";
-        $questions_html .= "<hr>";
-        $questions_html  .= "<h3>" . $row["post_title"] . "</h3>";
-        $questions_html .= "<p>" . $row["post_content"] . "</p>";
-        $questions_html .= "<p>Author: " . $row["post_author"] . "</p>";
-        $questions_html .= "<p>Created at: " . $row["created_at"] . "</p>";
-		$questions_html .= "<button class='reply-btn btn' data-post-id='" . $row["id"] . "'>Reply</button>";
-		$questions_html .= "<button class='like-btn btn' data-post-id='" . $row["id"] . "'><i class='fa fa-heart-o'></i></button>";
-		$questions_html .= "<div class='reply-form' data-post-id='" . $row["id"] . "' style='display:none;'>";
-		$questions_html .= "<form action='../server.php' method='post'>";
-		$questions_html .= "<input type='hidden' name='parent_post_id' value='" . $row["id"] . "'>";
-		$questions_html .= "<label for='post-content-" . $row["id"] . "'>Your Reply:</label>";
-		$questions_html .= "<textarea id='post-content-" . $row["id"] . "' name='post-content' rows='3' required></textarea>";
-		$questions_html .= "<label for='post-author-" . $row["id"] . "'>Your Name:</label>";
-		$questions_html .= "<input type='text' id='post-author-" . $row["id"] . "' name='post-author' required>";
-		$questions_html .= "<button type='submit'>Submit Reply</button>";
-		$questions_html .= "</form>";
-		$questions_html .= "</div>";
-        $questions_html .= "<hr>";
+        
     }
 } else {
     $questions_html .= "<p>No questions found</p>";
