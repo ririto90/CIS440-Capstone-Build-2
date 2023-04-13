@@ -69,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	<script type="text/javascript" src="../javascript.js"></script>
 </head>
     <header>
-		<h1>Welcome to the Mentor Forum</h1>
+		<h1>Welcome to CareerTalks</h1>
 	</header>
     <main>
     <div class="container">

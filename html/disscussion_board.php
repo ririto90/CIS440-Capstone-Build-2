@@ -94,7 +94,7 @@ mysqli_close($conn);
 	<link rel="stylesheet" type="text/css" href="../style.css">
 	<!-- Javascript -->
 	<script type="text/javascript" src="../javascript.js"></script>
-    <title>Mentor/Mentee Forum</title>
+    <title>Disscussion Board</title>
 </head>
 <body>
 	<nav class="navbar navbar-expand-md fixed-top navbar-dark" style="background-color: lightblue;">
@@ -114,7 +114,7 @@ mysqli_close($conn);
 		</div>
 	  </nav>
     <header>
-		<h1>Mentor/Mentee Forum</h1>
+		<h1>Disscusssion Board</h1>
 		<h7 class="page-subtitle">“A mentor is someone who sees more talent and ability within you, than you see in yourself, and helps bring it out of you.” — Bob Proctor</h5>
 	</header>
 	<main>
