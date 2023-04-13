@@ -30,7 +30,7 @@ if (mysqli_num_rows($result) > 0) {
 		$questions_html .= "<button class='like-btn btn' data-post-id='" . $row["id"] . "'><i class='fa fa-heart-o'></i></button>";
 		$questions_html .= "<div class='reply-form' data-post-id='" . $row["id"] . "' style='display:none;'>";
 		$questions_html .= "<form action='../replies_POST.php' method='post'>";
-		$questions_html .= "<input type='hidden' name='questions_id' value='" . $row["id"] . "'>";
+		$questions_html .= "<input type='hidden' name='question_id' value='" . $row["id"] . "'>";
 		$questions_html .= "<label for='post-content-" . $row["id"] . "'>Your Reply:</label>";
 		$questions_html .= "<textarea id='post-content-" . $row["id"] . "' name='content' rows='3' required></textarea>";
 		$questions_html .= "<label for='post-author-" . $row["id"] . "'>Your Name:</label>";
