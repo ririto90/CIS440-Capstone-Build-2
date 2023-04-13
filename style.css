@@ -195,6 +195,7 @@ label {
     padding: 1.3vh .7vw;
     font-size: 1vw;
     cursor: pointer;
+    margin:1px;
   }
 
 #role {
