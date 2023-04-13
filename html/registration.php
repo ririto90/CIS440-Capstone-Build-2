@@ -79,18 +79,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <label for="email"><b>Email: </b></label>
                         <input type="text" placeholder="Enter Email" name="email" required>
                       </td>
-                    </tr>
-                    <tr>
                       <td>
                         <label for="psw"><b>Password: </b></label>
                         <input type="password" placeholder="Enter Password" name="psw" required>
                       </td>
+                    </tr>
+                    <tr>
                       <td>
                         <label for="position"><b>Position: </b></label>
                         <input type="text" placeholder="Enter Position" name="position" required>
                       </td>
-                    </tr>
-                    <tr>
                       <td>
                         <label for="career"><b>Career Goals: </b></label>
                         <input type="text" placeholder="Enter Career Goals" name="career" required>
@@ -107,6 +105,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                       </td>
                       <td>
                         <p><b>Role:</b></p>
+                      </td>
+                      <td>
                         <input type="radio" id="mentor" name="role" value="mentor" required>
                         <label id="role">Mentor</label>
                         <br>

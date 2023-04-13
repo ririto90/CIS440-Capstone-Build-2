@@ -154,18 +154,6 @@ mysqli_close($conn);
 			  <button type="submit">Submit Post</button>
 			</form>
 		  </div>
-		<div class="question">
-			<h2>How can I improve my public speaking skills?</h2>
-			<p>I have a big presentation coming up and I'm nervous about speaking in front of a crowd. Any tips or advice?</p>
-			<div class="rating">
-				<label>Rate this question:</label>
-				<input type="radio" name="rating" value="1"><label></label>
-				<input type="radio" name="rating" value="2"><label></label>
-				<input type="radio" name="rating" value="3"><label></label>
-				<input type="radio" name="rating" value="4"><label></label>
-				<input type="radio" name="rating" value="5"><label></label>
-            </div>
-        </div>
     </main>
 <script>
 	var likeBtns = document.getElementsByClassName('like-btn');
