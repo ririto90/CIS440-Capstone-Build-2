@@ -66,6 +66,8 @@ if (mysqli_num_rows($result) > 0) {
     $questions_html .= "<p>No questions found</p>";
 }
 
+
+
 // Close the database connection
 mysqli_close($conn);
 
@@ -95,18 +97,8 @@ mysqli_close($conn);
 	<script type="text/javascript" src="../javascript.js"></script>
     <title>Mentor/Mentee Forum</title>
 </head>
-<script>
-    const replyBtns = document.querySelectorAll('.reply-btn');
-    replyBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const postId = btn.dataset.postId;
-            const replyForm = document.querySelector(`.reply-form[data-post-id='${postId}']`);
-            replyForm.style.display = (replyForm.style.display === 'none') ? 'block' : 'none';
-        });
-    });
-</script>
 <body>
-	<nav class="navbar navbar-expand-md fixed-top navbar-dark">
+	<nav class="navbar navbar-expand-md fixed-top navbar-dark" style="background-color: lightblue;">
 		<div class="container">
 		  <a class="navbar-brand" href="./profile.php"><i class="bi bi-person-circle"></i></a>
 		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -142,7 +134,7 @@ mysqli_close($conn);
 			  <label for="post-author">Your Name:</label>
 			  <input type="text" id="post-author" name="post-author" required>
 			  
-			  <button type="submit" class="btn">Submit Post</button>
+			  <button type="submit">Submit Post</button>
 			</form>
 		  </div>
 		<div class="question">
@@ -158,6 +150,53 @@ mysqli_close($conn);
             </div>
         </div>
     </main>
+<script>
+    const replyBtns = document.querySelectorAll('.reply-btn');
+    replyBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const postId = btn.dataset.postId;
+            const replyForm = document.querySelector(`.reply-form[data-post-id='${postId}']`);
+            replyForm.style.display = (replyForm.style.display === 'none') ? 'block' : 'none';
+        });
+    });
+
+	function submitPost() {
+	// Get the input field values
+	var username = document.getElementById("username").value;
+	var message = document.getElementById("message").value;
+	var replyTo = document.getElementById("replyTo").value;
+	
+	// Create a new post element
+	var newPost = document.createElement("div");
+	newPost.className = "post";
+	
+	// Create the post content
+	var postContent = "<h2>" + username + "</h2><p>" + message + "</p>";
+	
+	// If this is a reply, add a "reply" class to the new post element
+	if (replyTo) {
+		newPost.className += " reply";
+	}
+	
+	// Set the post content
+	newPost.innerHTML = postContent;
+	
+	// If this is a reply, append the new post as a child of the original post's parent element
+	if (replyTo) {
+		var originalPost = document.getElementById(replyTo);
+		originalPost.parentNode.insertBefore(newPost, originalPost.nextSibling);
+	} else { // Otherwise, append the new post as a child of the post container
+		var postContainer = document.getElementById("post-container");
+		postContainer.appendChild(newPost);
+	}
+	
+	// Clear the input fields
+	document.getElementById("username").value = "";
+	document.getElementById("message").value = "";
+	document.getElementById("replyTo").value = "";
+}
+
+</script>
 </body>
 </html>
 
