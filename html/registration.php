@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $stmt->bind_param("sssssss", $name, $password, $email, $position, $career, $alma, $role);
 
   if ($stmt->execute() === TRUE) {
-      header("Location: ../html/disscussion_board.php");
+      header("Location: ../html/home.php");
       exit();
   } else {
       echo "Error: " . $stmt->error;
@@ -112,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div id="buttons">
       <br>
       <a href="./home.php"><button type="button" class="btn">Cancel</button></a>
-      <a href="./disscussion_board.php"><button type="submit" class="btn">Sign Up</button></a>
+      <a href=#><button type="submit" class="btn">Sign Up</button></a>
     </div>
     </div>
     </div>
