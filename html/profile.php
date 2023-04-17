@@ -19,23 +19,23 @@
     <title>Mentor/Mentee Forum</title>
 </head>
 <body class="scroll-top" data-bs-spy="scroll" data-bs-target=".navbar">
-    <nav class="navbar navbar-expand-md fixed-top navbar-dark">
+    <nav class="navbar navbar-expand-md fixed-top navbar-dark" style="background-color: lightblue;">
 		<div class="container">
-		    <a class="navbar-brand" href="./profile.php"><i class="bi bi-person-circle"></i></a>
-		    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+		  <a class="navbar-brand" href="./profile.php"><i class="bi bi-person-circle"></i></a>
+		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
-		    </button>
-		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-            <a href="./disscussion_board.php" class="nav-link">Discussion</a>
-            <a href="./leaderboard.php" class="nav-link">Leaderboard</a>
-            <a href="./prizes.php" class="nav-link">Prizes</a>
-            <a onclick="logOut()" class="nav-link">Log Out</a>
-        </div>
-        </div>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+			<div class="navbar-nav">
+				<a href="./disscussion_board.php" class="nav-link">Discussion</a>
+				<a href="./leaderboard.php" class="nav-link">Leaderboard</a>
+				<a href="./prizes.php" class="nav-link">Prizes</a>
+				<a onclick="logOut()" class="nav-link">Log Out</a>
+			</div>
+		  </div>
 		</div>
-		</div>
-    </nav>
+	</nav>
+
 
 <header>
 		<h1 class="page-title">My Profile</h1>

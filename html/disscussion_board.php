@@ -115,9 +115,7 @@ mysqli_close($conn);
 		<h7 class="page-subtitle">“A mentor is someone who sees more talent and ability within you, than you see in yourself, and helps bring it out of you.” — Bob Proctor</h5>
 	</header>
 	<main>
-		<div class="discussion-post-form">
 		<?php echo "<div id='discussion-posts'>" . $questions_html . "</div>"; ?>
-		</div>
 		<div class="discussion-post-form">
 			<h2 class="form-title">Create a new discussion post</h2>
 			<form action="../questions_POST.php" method="post">
@@ -129,7 +127,7 @@ mysqli_close($conn);
 			  
 			  <label for="post-author">Your Name:</label>
 			  <input type="text" id="post-author" name="post-author" required>
-			  
+			  <br>
 			  <button type="submit" class="btn">Submit Post</button>
 			</form>
 		  </div>
