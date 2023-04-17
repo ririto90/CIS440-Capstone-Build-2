@@ -20,7 +20,6 @@ $questions_html = "";
 if (mysqli_num_rows($result) > 0) {
 	$questions_html .= "<div class='question'>";
     while ($row = mysqli_fetch_assoc($result)) {
-		
         $questions_html .= "<h3>" . $row["post_title"] . "</h3>";
         $questions_html .= "<p>" . $row["post_content"] . "</p>";
         $questions_html .= "<p>Post by: " . $row["post_author"] . "</p>";
@@ -40,7 +39,7 @@ if (mysqli_num_rows($result) > 0) {
 				$replies_html .= "<button class='like-btn replybtn' data-post-id='" . $row["id"] . "style='outline:none;''><i class='fa fa-heart-o'></i></button>";
             }
 			$replies_html .= "</div>";
-			$replies_html .= "<br>";
+			$replies_html .= "<hr>";
 			$questions_html .= $replies_html;
 			
         } else {
@@ -59,7 +58,6 @@ if (mysqli_num_rows($result) > 0) {
 		$questions_html .= "</div>";
 		$questions_html .= "<button class='reply-btn btn' data-post-id='" . $row["id"] . "'>Reply</button>";
 		$questions_html .= "<button class='like-btn btn' data-post-id='" . $row["id"] . "'style='outline:none;'><i class='fa fa-heart-o'></i></button>";
-        $questions_html .= "<hr>";
     }
 } else {
     $questions_html .= "<p>No discussion posts found</p>";
@@ -120,13 +118,13 @@ mysqli_close($conn);
 			<h2 class="form-title">Create a new discussion post</h2>
 			<form action="../questions_POST.php" method="post">
 			  <label for="post-title">Post Title:</label>
-			  <input type="text" id="post-title" name="post-title" required>
+			  <input type="text" id="post-title" style="width: 400px;" name="post-title" required>
 			  
 			  <label for="post-content">Post Content:</label>
-			  <textarea id="post-content" name="post-content" rows="5" required></textarea>
+			  <textarea id="post-content" name="post-content" rows="5" style="width: 400px;"required></textarea>
 			  
 			  <label for="post-author">Your Name:</label>
-			  <input type="text" id="post-author" name="post-author" required>
+			  <input type="text" id="post-author" style="width: 400px;" name="post-author" required>
 			  <br>
 			  <button type="submit" class="btn">Submit Post</button>
 			</form>
