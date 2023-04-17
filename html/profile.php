@@ -1,3 +1,17 @@
+<?php
+session_start();
+
+
+$username = $_SESSION['username'];
+$role = $_SESSION['role'];
+$email = $_SESSION['email'];
+$position = $_SESSION['position'];
+$career = $_SESSION['career_goal'];
+$alma = $_SESSION['alma_matter'];
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,7 +44,7 @@
 				<a href="./disscussion_board.php" class="nav-link">Discussion</a>
 				<a href="./leaderboard.php" class="nav-link">Leaderboard</a>
 				<a href="./prizes.php" class="nav-link">Prizes</a>
-				<a onclick="logOut()" class="nav-link">Log Out</a>
+				<a href="#" onclick="logOut()" class="nav-link">Log Out</a>
 			</div>
 		  </div>
 		</div>
@@ -50,8 +64,8 @@
         <div class="card-body">
         <div class="card-text">
             <i id="profile" class="bi bi-person-circle"></i>
-            <p id="name">Brendan Quinn</p>
-            <p id="role">Mentor</p> 
+            <p id="name"><?php echo $username; ?></p>
+            <p id="role"><?php echo $role; ?></p> 
         </div>
         </div>
         </div>
@@ -63,37 +77,22 @@
         <tr>
             <td>Email</td>
             <td>:</td>
-            <td>jrivera@gmail.com</td>
+            <td><?php echo $email; ?></td>
         </tr>
         <tr>
             <td>Position </td>
             <td>:</td>
-            <td>Web Developer</td>
+            <td><?php echo $position; ?></td>
         </tr>
         <tr>
             <td>Career Goals</td>
             <td>:</td>
-            <td>Promotion</td>
+            <td><?php echo $career; ?></td>
             </tr>
         <tr>
             <td>Alma Mater</td>
             <td>:</td>
-            <td>Arizona State University</td>
-        </tr>
-        <tr>
-            <td>Posts</td>
-            <td>:</td>
-            <td>0</td>
-        </tr>
-        <tr>
-            <td>Replies</td>
-            <td>:</td>
-            <td>3</td>
-        </tr>
-        <tr>
-            <td>Likes</td>
-            <td>:</td>
-            <td>1724</td>
+            <td><?php echo $alma; ?></td>
         </tr>
         </table>
         </p>

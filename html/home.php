@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 $host = "107.180.1.16:3306";
 $username = "sprc2023team2";
@@ -16,14 +17,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = mysqli_real_escape_string($conn, $_POST['username']);
     $password = mysqli_real_escape_string($conn, $_POST['password']);
 
-    $query = "SELECT user_id, username FROM users WHERE username = '$username' AND password = '$password'";
+    $query = "SELECT user_id, username, email, position, career_goal, alma_matter, role FROM users WHERE username = '$username' AND password = '$password'";
     $result = mysqli_query($conn, $query);
 
     if ($result && mysqli_num_rows($result) === 1) {
         $row = mysqli_fetch_assoc($result);
         $user_id = $row['user_id'];
         $username = $row['username'];
-        $role_id = $row['role_id'];
+        $role = $row['role'];
+        $email = $row['email'];
+        $position = $row['position'];
+        $career = $row['career_goal'];
+        $alma = $row['alma_matter'];
+
+        $_SESSION['user_id'] = $user_id;
+        $_SESSION['username'] = $username;
+        $_SESSION['role'] = $role;
+        $_SESSION['email'] = $email;
+        $_SESSION['position'] = $position;
+        $_SESSION['career_goal'] = $career;
+        $_SESSION['alma_matter'] = $alma;
 
         header("Location: ../html/disscussion_board.php");
         exit();
@@ -50,8 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 	<link rel="stylesheet" type="text/css" href="../style.css">
 
-	<script type="text/javascript" src="../javascript.js"></script>
-
+    <script type="text/javascript" src="../javascript.js"></script>
 </head>
 
 <header>

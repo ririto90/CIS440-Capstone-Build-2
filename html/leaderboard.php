@@ -1,3 +1,53 @@
+<?php
+$host = "107.180.1.16:3306";
+$username = "sprc2023team2";
+$password = "sprc2023team2";
+$dbname = "sprc2023team2";
+
+$conn = mysqli_connect($host, $username, $password, $dbname);
+
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+$sql = "SELECT post_author, COUNT(*) AS total FROM (
+    SELECT post_author FROM discussion_questions
+    UNION ALL
+    SELECT author FROM discussion_replies
+) AS authors GROUP BY post_author HAVING total > 0 ORDER BY total DESC";
+
+$result = mysqli_query($conn, $sql);
+
+$rank_html = "";
+
+if (mysqli_num_rows($result) > 0) {
+    $rank_html .= "<table id='leaderboard'>";
+    $rank_html .= "<tr><th style='text-align:center; font-size:auto;'>Rank</th><th></th><th style='text-align: center; font-size:auto;'>Author</th><th></th><th style='text-align: center; font-size:auto;'>Points</th></tr>";
+    $rank = 1;
+    while ($row = mysqli_fetch_assoc($result)) {
+        $rank_html .= "<tr>";
+        if ($rank == 1) {
+            $rank_html .= "<td><i class='bi bi-1-circle-fill' style='color: gold;'></i></td>";
+        } elseif ($rank == 2) {
+            $rank_html .= "<td><i class='bi bi-2-circle-fill' style='color: silver;'></i></td>";
+        } elseif ($rank == 3) {
+            $rank_html .= "<td><i class='bi bi-3-circle-fill' style='color: orange;'></i></td>";
+        } else {
+            $rank_html .= "<td><i class='bi bi-" . $rank . "-circle-fill' style='color: black;'></i></td>";
+        }
+        $rank_html .= "<td><i class='bi bi-person-circle'></i></td><td>" . $row["post_author"] . "</td><td>";
+		for ($i = 0; $i < floor($row["total"] / 1); $i++) {
+			$rank_html .= "<i class='bi bi-heart-fill' style='color:#bf3a5e;'></i> ";
+		}
+        $rank_html .= "</td><td>" . $row["total"] . "</td></tr>";
+        $rank++;
+    }
+    $rank_html .= "</table>";
+} else {
+    $rank_html .= "<p>No authors found</p>";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,7 +81,7 @@
 				<a href="./disscussion_board.php" class="nav-link">Discussion</a>
 				<a href="./leaderboard.php" class="nav-link">Leaderboard</a>
 				<a href="./prizes.php" class="nav-link">Prizes</a>
-				<a onclick="logOut()" class="nav-link">Log Out</a>
+				<a href="#" onclick="logOut()" class="nav-link">Log Out</a>
 			</div>
 		  </div>
 		</div>
@@ -44,43 +94,7 @@
 </header>
 
 <main>
-	<table id="leaderboard">
-		<tr>
-			<td><i class="bi bi-1-circle-fill" style="color: gold;"></i></td>   
-			<td><i class="bi bi-person-circle"></i></td>  
-			<td>Diane Lam</td>
-			<td><i class="bi bi-star-fill"></i>  <i class="bi bi-star-fill"></i>  <i class="bi bi-star-fill"></i>  <i class="bi bi-star-fill"></i>  <i class="bi bi-star-fill"></i></td>
-			<td>2980</td>
-		</tr>
-		<tr>
-			<td><i class="bi bi-2-circle-fill" style="color: silver;"></i></td>   
-			<td><i class="bi bi-person-circle"></i></td>  
-			<td>Tegan Hartley</td>
-			<td><i class="bi bi-star-fill"></i>  <i class="bi bi-star-fill"></i>  <i class="bi bi-star-fill"></i>  <i class="bi bi-star-fill"></i>  <i class="bi bi-star"></i></td>
-			<td>2721</td>
-		</tr>
-		<tr>
-			<td><i class="bi bi-3-circle-fill" style="color: brown;"></i></td>   
-			<td><i class="bi bi-person-circle"></i></td>  
-			<td>Faiza Brennan</td>
-			<td><i class="bi bi-star-fill"></i>  <i class="bi bi-star-fill"></i>  <i class="bi bi-star-fill"></i>  <i class="bi bi-star"></i>  <i class="bi bi-star"></i></td>
-			<td>2579</td>
-		</tr>
-		<tr>
-			<td><i class="bi bi-4-circle-fill" style="color: green;"></i></td>   
-			<td><i class="bi bi-person-circle"></i></td>
-			<td>Brendan Quinn</td>
-			<td><i class="bi bi-star-fill"></i>  <i class="bi bi-star-fill"></i>  <i class="bi bi-star-fill"></i>  <i class="bi bi-star"></i>  <i class="bi bi-star"></i></td>
-			<td>1874</td>
-		</tr>
-		<tr>
-			<td><i class="bi bi-5-circle-fill" style="color: blue;"></i></td>   
-			<td><i class="bi bi-person-circle"></i></td>
-			<td>Sachin Whitaker</td>
-			<td><i class="bi bi-star-fill"></i>  <i class="bi bi-star-fill"></i>  <i class="bi bi-star"></i>  <i class="bi bi-star"></i>  <i class="bi bi-star"></i></td>
-			<td>1756</td>
-		</tr>
-
+<?php echo $rank_html; ?>
 </main>
 </body>
 </html>

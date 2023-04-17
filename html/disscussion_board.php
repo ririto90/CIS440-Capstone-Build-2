@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 $host = "107.180.1.16:3306";
 $username = "sprc2023team2";
@@ -21,51 +22,61 @@ if (mysqli_num_rows($result) > 0) {
 	$questions_html .= "<div class='question'>";
     while ($row = mysqli_fetch_assoc($result)) {
         $questions_html .= "<h3>" . $row["post_title"] . "</h3>";
+		$questions_html .= "<p>" . $row["post_author"] . "</p>";
         $questions_html .= "<p>" . $row["post_content"] . "</p>";
-        $questions_html .= "<p>Post by: " . $row["post_author"] . "</p>";
-        
+		if (isset($_SESSION["role"]) && $_SESSION["role"] == "mentee") {
+			$questions_html .= "<button class='like-btn btn' data-post-id='" . $row["id"] . "'style='outline:none;'><i class='fa fa-heart-o'></i></button>";
+		}
         $question_id = $row["id"];
 
         $replies_sql = "SELECT * FROM discussion_replies WHERE question_id = '$question_id' ORDER BY created_at DESC";
         $replies_result = mysqli_query($conn, $replies_sql);
 
         $replies_html = "";
+		
+	
 
         if (mysqli_num_rows($replies_result) > 0) {
+
             $replies_html .= "<div class='reply'>";
+			$reply_count = 0;
             while ($reply_row = mysqli_fetch_assoc($replies_result)) {
+				$reply_count++;
+				$replies_html .= "<p>" . $reply_row["author"] . "</p>";
                 $replies_html .= "<p>" . $reply_row["content"] . "</p>";
-                $replies_html .= "<p>Reply by: " . $reply_row["author"] . "</p>";
 				$replies_html .= "<button class='like-btn replybtn' data-post-id='" . $row["id"] . "style='outline:none;''><i class='fa fa-heart-o'></i></button>";
+				
             }
 			$replies_html .= "</div>";
-			$replies_html .= "<hr>";
 			$questions_html .= $replies_html;
-			
+			if ($reply_count < mysqli_num_rows($replies_result)) { 
+				$replies_html .= "<hr>"; 
+			}
         } else {
             $replies_html .= "<p>No replies found</p>";
         }
 
-		$questions_html .= "<div class='reply-form' data-post-id='" . $row["id"] . "' style='display:none;'>";
-		$questions_html .= "<form action='../replies_POST.php' method='post'>";
-		$questions_html .= "<input type='hidden' name='question_id' value='" . $row["id"] . "'>";
-		$questions_html .= "<label for='post-content-" . $row["id"] . "'>Your Reply:</label>";
-		$questions_html .= "<textarea id='post-content-" . $row["id"] . "' name='content' rows='3' required></textarea>";
-		$questions_html .= "<label for='post-author-" . $row["id"] . "'>Your Name:</label>";
-		$questions_html .= "<input type='text' id='post-author-" . $row["id"] . "' name='author' required>";
-		$questions_html .= "<button type='submit' class='btn'>Submit Reply</button>";
-		$questions_html .= "</form>";
-		$questions_html .= "</div>";
-		$questions_html .= "<button class='reply-btn btn' data-post-id='" . $row["id"] . "'>Reply</button>";
-		$questions_html .= "<button class='like-btn btn' data-post-id='" . $row["id"] . "'style='outline:none;'><i class='fa fa-heart-o'></i></button>";
+		if (isset($_SESSION["role"]) && $_SESSION["role"] == "mentor") {
+			$questions_html .= "<div class='reply-form' data-post-id='" . $row["id"] . "' style='display:none;'>";
+			$questions_html .= "<form action='../replies_POST.php' method='post'>";
+			$questions_html .= "<input type='hidden' name='question_id' value='" . $row["id"] . "'>";
+			$questions_html .= "<label for='post-content-" . $row["id"] . "'>Your Reply:</label>";
+			$questions_html .= "<textarea id='post-content-" . $row["id"] . "' name='content' rows='3' style='width:400px;' required></textarea>";
+			$questions_html .= "<label for='post-author-" . $row["id"] . "'>Your Name:</label>";
+			$questions_html .= "<input type='text' id='post-author-" . $row["id"] . "' name='author' style='width:400px;' required>";
+			$questions_html .= "<button type='submit' class='btn'>Submit Reply</button>";
+			$questions_html .= "</form>";
+			$questions_html .= "</div>";
+			$questions_html .= "<button class='reply-btn btn' data-post-id='" . $row["id"] . "'>Reply</button>";
+			$questions_html .= "<button class='like-btn btn' data-post-id='" . $row["id"] . "'style='outline:none;'><i class='fa fa-heart-o'></i></button>";
+		} 
+		if ($question_id > 1){
+			$questions_html .= "<hr>";
+		}
     }
 } else {
     $questions_html .= "<p>No discussion posts found</p>";
 }
-
-
-mysqli_close($conn);
-
 ?>
 
 
@@ -114,21 +125,23 @@ mysqli_close($conn);
 	</header>
 	<main>
 		<?php echo "<div id='discussion-posts'>" . $questions_html . "</div>"; ?>
+		<?php if (isset($_SESSION["role"]) && $_SESSION["role"] == "mentee") { ?>
 		<div class="discussion-post-form">
 			<h2 class="form-title">Create a new discussion post</h2>
 			<form action="../questions_POST.php" method="post">
-			  <label for="post-title">Post Title:</label>
-			  <input type="text" id="post-title" style="width: 400px;" name="post-title" required>
-			  
-			  <label for="post-content">Post Content:</label>
-			  <textarea id="post-content" name="post-content" rows="5" style="width: 400px;"required></textarea>
-			  
-			  <label for="post-author">Your Name:</label>
-			  <input type="text" id="post-author" style="width: 400px;" name="post-author" required>
-			  <br>
-			  <button type="submit" class="btn">Submit Post</button>
+			<label for="post-title">Post Title:</label>
+			<input type="text" id="post-title" style="width: 400px;" name="post-title" required>
+			
+			<label for="post-content">Post Content:</label>
+			<textarea id="post-content" name="post-content" rows="5" style="width: 400px;"required></textarea>
+			
+			<label for="post-author">Your Name:</label>
+			<input type="text" id="post-author" style="width: 400px;" name="post-author" required>
+			<br>
+			<button type="submit" class="btn">Submit Post</button>
 			</form>
-		  </div>
+		</div>
+		<?php } else {} ?>
     </main>
 
 <script>

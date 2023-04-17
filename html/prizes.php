@@ -10,7 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="../style.css">
 
 	<script type="text/javascript" src="../javascript.js"></script>
-
+	
     <title>Mentor/Mentee Forum</title>
 </head>
 
@@ -27,7 +27,7 @@
 				<a href="./disscussion_board.php" class="nav-link">Discussion</a>
 				<a href="./leaderboard.php" class="nav-link">Leaderboard</a>
 				<a href="./prizes.php" class="nav-link">Prizes</a>
-				<a onclick="logOut()" class="nav-link">Log Out</a>
+				<a href="#" onclick="logOut()" class="nav-link">Log Out</a>
 			</div>
 		  </div>
 		</div>
