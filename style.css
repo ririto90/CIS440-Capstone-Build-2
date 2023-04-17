@@ -170,7 +170,7 @@ main {
 
 /* disscussion board */
 .discussion-post-form {
-    background-color: #fff;
+    background-color: #f2f2f2;
     padding: 1vw;
     border-radius: .5vw;
     box-shadow: 0 .1vw .2vw rgba(0, 0, 0, 0.1);
@@ -194,11 +194,44 @@ label {
     border: .01vw solid #ccc;
     border-radius: .3vw;
     margin-bottom: 2.5vh;
+    width: 400px;
   }
   
 .btn {
-    background-color: #008CC6;
-    color: #fff;
+    background-color: lightblue;
+    border: none;
+    border-radius: .3vw;
+    padding: 1.3vh .7vw;
+    font-size: 1vw;
+    cursor: pointer;
+    margin:1px;
+    outline: none;
+  }
+
+#role {
+    display:inline-block;
+}
+
+.question {
+    background-color: #f2f2f2;
+    font-size: 18px;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 .1vw .2vw rgba(0, 0, 0, 0.1);
+  }
+  
+  .reply {
+    background-color: #e8c1b5;
+    font-size: 16px;
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 10px;
+    outline:none;
+  }
+
+  .replybtn {
+    outline: none;
+    background-color: #e8c1b5;
     border: none;
     border-radius: .3vw;
     padding: 1.3vh .7vw;
@@ -207,7 +240,7 @@ label {
     margin:1px;
   }
 
-#role {
-    display:inline-block;
-}
 
+.like-btn {
+    outline: 'none';
+}

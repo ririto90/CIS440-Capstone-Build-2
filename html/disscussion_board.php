@@ -18,14 +18,35 @@ $result = mysqli_query($conn, $sql);
 $questions_html = "";
 
 if (mysqli_num_rows($result) > 0) {
-	$questions_html .= "<div>";
+	$questions_html .= "<div class='question'>";
     while ($row = mysqli_fetch_assoc($result)) {
+		
         $questions_html .= "<h3>" . $row["post_title"] . "</h3>";
         $questions_html .= "<p>" . $row["post_content"] . "</p>";
-        $questions_html .= "<p>Author: " . $row["post_author"] . "</p>";
-        $questions_html .= "<p>Created at: " . $row["created_at"] . "</p>";
-		$questions_html .= "<button class='reply-btn btn' data-post-id='" . $row["id"] . "'>Reply</button>";
-		$questions_html .= "<button class='like-btn btn' data-post-id='" . $row["id"] . "'><i class='fa fa-heart-o'></i></button>";
+        $questions_html .= "<p>Post by: " . $row["post_author"] . "</p>";
+        
+        $question_id = $row["id"];
+
+        $replies_sql = "SELECT * FROM discussion_replies WHERE question_id = '$question_id' ORDER BY created_at DESC";
+        $replies_result = mysqli_query($conn, $replies_sql);
+
+        $replies_html = "";
+
+        if (mysqli_num_rows($replies_result) > 0) {
+            $replies_html .= "<div class='reply'>";
+            while ($reply_row = mysqli_fetch_assoc($replies_result)) {
+                $replies_html .= "<p>" . $reply_row["content"] . "</p>";
+                $replies_html .= "<p>Reply by: " . $reply_row["author"] . "</p>";
+				$replies_html .= "<button class='like-btn replybtn' data-post-id='" . $row["id"] . "style='outline:none;''><i class='fa fa-heart-o'></i></button>";
+            }
+			$replies_html .= "</div>";
+			$replies_html .= "<br>";
+			$questions_html .= $replies_html;
+			
+        } else {
+            $replies_html .= "<p>No replies found</p>";
+        }
+
 		$questions_html .= "<div class='reply-form' data-post-id='" . $row["id"] . "' style='display:none;'>";
 		$questions_html .= "<form action='../replies_POST.php' method='post'>";
 		$questions_html .= "<input type='hidden' name='question_id' value='" . $row["id"] . "'>";
@@ -36,29 +57,14 @@ if (mysqli_num_rows($result) > 0) {
 		$questions_html .= "<button type='submit' class='btn'>Submit Reply</button>";
 		$questions_html .= "</form>";
 		$questions_html .= "</div>";
+		$questions_html .= "<button class='reply-btn btn' data-post-id='" . $row["id"] . "'>Reply</button>";
+		$questions_html .= "<button class='like-btn btn' data-post-id='" . $row["id"] . "'style='outline:none;'><i class='fa fa-heart-o'></i></button>";
         $questions_html .= "<hr>";
-
-        $question_id = $row["id"];
-		
-        $replies_sql = "SELECT * FROM discussion_replies WHERE question_id = '$question_id' ORDER BY created_at DESC";
-        $replies_result = mysqli_query($conn, $replies_sql);
-
-        $replies_html = "";
-
-        if (mysqli_num_rows($replies_result) > 0) {
-            $replies_html .= "<div>";
-            while ($reply_row = mysqli_fetch_assoc($replies_result)) {
-                $replies_html .= "<p>" . $reply_row["content"] . "</p>";
-                $replies_html .= "<p>Created by: " . $reply_row["author"] . "</p>";
-            }
-            $replies_html .= "</div>";
-        } else {
-            $replies_html .= "<p>No replies found</p>";
-        }
     }
 } else {
     $questions_html .= "<p>No discussion posts found</p>";
 }
+
 
 mysqli_close($conn);
 
@@ -87,7 +93,7 @@ mysqli_close($conn);
 	<title>Disscussion Board</title>
 
 </head>
-<body>
+<body style="background-color: #f2f2f2; box-shadow: 0 .1vw .2vw rgba(0, 0, 0, 0.1);">
 	<nav class="navbar navbar-expand-md fixed-top navbar-dark" style="background-color: lightblue;">
 		<div class="container">
 		  <a class="navbar-brand" href="./profile.php"><i class="bi bi-person-circle"></i></a>
@@ -131,13 +137,22 @@ mysqli_close($conn);
 
 <script>
 	var likeBtns = document.getElementsByClassName('like-btn');
+
 	for (var i = 0; i < likeBtns.length; i++) {
-	likeBtns[i].addEventListener('click', function() {
-		if (this.style.color === 'red') {
+	likeBtns[i].addEventListener('click', function(e) {
+	e.preventDefault();
+	var heartIcon = this.querySelector('i');
+	if (heartIcon.classList.contains('fa-heart-o')) {
+		this.style.color = '#bf3a5e';
+		this.style.outline = 'none';
+		heartIcon.classList.remove('fa-heart-o');
+		heartIcon.classList.add('fa-heart');
+	} else {
+		heartIcon.classList.remove('fa-heart');
 		this.style.color = '';
-		} else {
-		this.style.color = 'red';
-		}
+		this.style.outline = 'none';
+		heartIcon.classList.add('fa-heart-o');
+	}
 	});
 	}
 

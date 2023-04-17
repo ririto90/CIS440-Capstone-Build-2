@@ -6,26 +6,32 @@ $dbname = "sprc2023team2";
 
 $conn = mysqli_connect($host, $username, $password, $dbname);
 
-
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$post_ID = $_POST['question_id'];
-$post_content = $_POST['content'];
-$post_author = $_POST['author'];
+if (isset($_POST['question_id']) && isset($_POST['content']) && isset($_POST['author'])) {
+  $question_id = $_POST['question_id'];
+  $content = $_POST['content'];
+  $author = $_POST['author'];
 
-$sql = "INSERT INTO discussion_replies (question_id, author, content) VALUES ('$post_ID', '$post_author', '$post_content')";
 
-echo $sql;
+  $stmt = $conn->prepare("INSERT INTO discussion_replies (question_id, author, content) VALUES (?, ?, ?)");
 
-if (mysqli_query($conn, $sql)) {
-    echo "New post created successfully";
+ 
+  $stmt->bind_param("iss", $question_id, $author, $content);
+
+  if ($stmt->execute()) {
+    header("Location: ../html/disscussion_board.php");
+  } else {
+    echo "Error: " . $stmt->error;
+  }
+
+  $stmt->close();
 } else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+  echo "Error: Missing required fields.";
 }
 
 mysqli_close($conn);
 
-include('html/disscussion_board.php')
 ?>
